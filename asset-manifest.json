@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Syntax_Terminators_Hosting/static/css/main.a9014726.css",
+    "main.js": "/Syntax_Terminators_Hosting/static/js/main.b7718997.js",
+    "static/media/Banner1.png": "/Syntax_Terminators_Hosting/static/media/Banner1.7d20f24a8a7d0b92854c.png",
+    "static/media/final-logo.png": "/Syntax_Terminators_Hosting/static/media/final-logo.1238ea00ffc68696ab4a.png",
+    "static/media/slick.svg": "/Syntax_Terminators_Hosting/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/Syntax_Terminators_Hosting/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/Syntax_Terminators_Hosting/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/Syntax_Terminators_Hosting/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/Syntax_Terminators_Hosting/index.html",
+    "main.a9014726.css.map": "/Syntax_Terminators_Hosting/static/css/main.a9014726.css.map",
+    "main.b7718997.js.map": "/Syntax_Terminators_Hosting/static/js/main.b7718997.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9014726.css",
+    "static/js/main.b7718997.js"
+  ]
+}
