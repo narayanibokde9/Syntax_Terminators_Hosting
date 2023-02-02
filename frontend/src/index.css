@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.slick-prev:before,
+.slick-next:before {
+  color: black !important;
+}
+
+.slick-slider .slick-track,
+.slick-slider .slick-list{
+  padding-bottom: 5%;
+}
