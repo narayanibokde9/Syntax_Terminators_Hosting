@@ -5,10 +5,10 @@ const {
 	delete_item,
 } = require("../controllers/favCartController");
 
-const requireAuth = require("../middleware/requireAuth");
+// const requireAuth = require("../middleware/requireAuth");
 const router = express.Router();
 
-router.use(requireAuth);
+// router.use(requireAuth);
 
 router.get("/favorites", get_fav_items);
 
