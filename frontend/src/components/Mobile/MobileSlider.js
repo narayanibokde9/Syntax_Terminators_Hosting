@@ -15,7 +15,10 @@ export default function MobileSlider() {
 				res.json();
 				console.log("GOT JSON");
 			})
-			.then((jsonRes) => setProduct(jsonRes));
+			.then((jsonRes) => {
+				console.log(jsonRes);
+				setProduct(jsonRes);
+			});
 	}, []);
 	
 	const settings = {
@@ -29,7 +32,7 @@ export default function MobileSlider() {
 		<div className="m-4">
 			<h1 className="text-2xl">Mobiles</h1>
 			<Slider {...settings} className=" -mb-16 m-8 ">
-				{product.map((mobile) => {
+				{product && product.map((mobile) => {
 					const { _id } = mobile;
 					return (
 						<div className="px-2">
