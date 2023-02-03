@@ -25,7 +25,7 @@ function FilterResult() {
 	const queryRatingSort = searchParams.get("ratingSort");
 	useEffect(() => {
 			fetch(
-				`${url_proxy}/products/filter?brand=${queryBrand}&price=${queryPrice}&priceSort=${queryPriceSort}&ratingSort=${queryRatingSort}`
+				`${url_proxy}products/filter?brand=${queryBrand}&price=${queryPrice}&priceSort=${queryPriceSort}&ratingSort=${queryRatingSort}`
 			)
 				.then((res) => res.json())
 				.then((jsonRes) => setProducts(jsonRes));

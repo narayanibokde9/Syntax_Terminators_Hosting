@@ -28,7 +28,7 @@ export default function Search() {
 
 	useEffect(() => {
 		fetch(
-			`${url_proxy}/products/search?searchQuery=${query}&page=${currentPage}`
+			`${url_proxy}products/search?searchQuery=${query}&page=${currentPage}`
 		)
 			.then((res) => res.json())
 			.then((jsonRes) => {

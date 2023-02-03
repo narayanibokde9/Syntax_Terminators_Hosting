@@ -10,7 +10,7 @@ export default function MobilePage() {
 	const [product, setProduct] = useState([]);
 
 	useEffect(() => {
-		fetch(`${url_proxy}/products/showdb`)
+		fetch(`${url_proxy}products/showdb`)
 			.then((res) => res.json())
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);

@@ -20,7 +20,7 @@ function Product() {
 	const { _id } = useParams();
 
 	useEffect(() => {
-		fetch(`${url_proxy}/products/showPhone/${_id}`)
+		fetch(`${url_proxy}products/showPhone/${_id}`)
 			.then((res) => res.json())
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);
@@ -33,7 +33,7 @@ function Product() {
 		setFavorite(favorite.push(product));
 		console.log(product);
 
-		fetch(`${url_proxy}/user/favorites`, {
+		fetch(`${url_proxy}user/favorites`, {
 			method: "POST",
 			body: JSON.stringify(product),
 			headers: {
@@ -81,7 +81,7 @@ export const ProductDetail = () => {
 	const { _id } = useParams();
 
 	useEffect(() => {
-		fetch(`${url_proxy}/products/showPhone/${_id}`)
+		fetch(`${url_proxy}products/showPhone/${_id}`)
 			.then((res) => res.json())
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);

@@ -12,13 +12,13 @@ function FilterNav() {
 	const [storageFetch, setStorageFetch] = useState([]);
 
 	useEffect(() => {
-		fetch(`${url_proxy}/products/brands`)
+		fetch(`${url_proxy}products/brands`)
 			.then((res) => res.json())
 			.then((jsonRes) => setBrandFetch(jsonRes));
 	}, []);
 
 	useEffect(() => {
-		fetch(`${url_proxy}/products/storage`)
+		fetch(`${url_proxy}products/storage`)
 			.then((res) => res.json())
 			.then((jsonRes) => setStorageFetch(jsonRes));
 	}, []);
