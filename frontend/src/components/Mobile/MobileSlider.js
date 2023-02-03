@@ -12,11 +12,11 @@ export default function MobileSlider() {
 		console.log("GOT URL");
 		fetch(`${url_proxy}products/showdb`)
 			.then((res) => {
-				res.json();
-				console.log(res.json());
+				jsonRes = res.json();
+				setProduct(jsonRes));
+				console.log(jsonRes);
 				console.log("GOT JSON");
 			})
-			.then((jsonRes) => setProduct(jsonRes));
 	}, []);
 
 	const settings = {
