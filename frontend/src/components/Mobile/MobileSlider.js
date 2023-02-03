@@ -10,7 +10,7 @@ export default function MobileSlider() {
 
 	useEffect(() => {
 		console.log("GOT URL");
-		fetch(`${url_proxy}/products/showdb`)
+		fetch(`${url_proxy}products/showdb`)
 			.then((res) => {
 				res.json();
 				console.log("GOT JSON");
