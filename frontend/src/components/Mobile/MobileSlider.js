@@ -13,6 +13,7 @@ export default function MobileSlider() {
 		fetch(`${url_proxy}products/showdb`)
 			.then((res) => {
 				res.json();
+				console.log(res.json());
 				console.log("GOT JSON");
 			})
 			.then((jsonRes) => setProduct(jsonRes));
