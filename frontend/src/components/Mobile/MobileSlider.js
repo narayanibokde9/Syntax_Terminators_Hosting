@@ -9,8 +9,12 @@ export default function MobileSlider() {
 	const [product, setProduct] = useState([]);
 
 	useEffect(() => {
+		console.log("GOT URL");
 		fetch(`${url_proxy}/products/showdb`)
-			.then((res) => res.json())
+			.then((res) => {
+				res.json();
+				console.log("GOT JSON");
+			})
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);
 
