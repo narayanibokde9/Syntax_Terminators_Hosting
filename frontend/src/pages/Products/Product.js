@@ -99,7 +99,7 @@ const ProdAmazon = () => {
 	const { _id } = useParams();
 
 	useEffect(() => {
-		fetch(`/products/showPhone/${_id}`)
+		fetch(`${url_proxy}products/showPhone/${_id}`)
 			.then((res) => res.json())
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);
@@ -117,7 +117,7 @@ const ProdFlipkart = () => {
 	const { _id } = useParams();
 
 	useEffect(() => {
-		fetch(`/products/showPhone/${_id}`)
+		fetch(`${url_proxy}products/showPhone/${_id}`)
 			.then((res) => res.json())
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);
@@ -135,7 +135,7 @@ const ProductInfoTable = () => {
 	const { _id } = useParams();
 
 	useEffect(() => {
-		fetch(`/products/showPhone/${_id}`)
+		fetch(`${url_proxy}products/showPhone/${_id}`)
 			.then((res) => res.json())
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);
