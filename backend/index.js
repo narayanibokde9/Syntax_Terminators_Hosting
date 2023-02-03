@@ -11,12 +11,7 @@ const productRoutes = require('./routes/products')
 
 //middleware
 // Allow requests from any origin
-const corsOptions = {
-	origin: "*",
-	methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
-	allowedHeaders: ["Content-Type", "Authorization"],
-};
-app.use(cors(corsOptions));
+app.use(cors());
 
 const app = express()
 app.use(express.json())
