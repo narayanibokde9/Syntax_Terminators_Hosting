@@ -2,9 +2,9 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 //import routes
-const userRoutes = require('./routes/users')
-const favoriteRoutes = require('./routes/favorites')
-const productRoutes = require('./routes/products')
+const userRoutes = require('../routes/users')
+const favoriteRoutes = require('../routes/favorites')
+const productRoutes = require('../routes/products')
 
 //middleware
 // Allow requests from any origin
@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 })
 // Add headers before the routes are defined
 //models
-const TimeStamp = require('./models/time')
+const TimeStamp = require('../models/time')
 app.get("/time", (req, res) => {
 	TimeStamp.find()
 		.then((items) => res.json(items))
