@@ -1,14 +1,15 @@
 {
     "version": 2,
-    "builds": [
-        {
-            "src": "./index.py",
-            "use": "@vercel/python"
-        }
-    ],
+    "builds": [{ "src": "*.js", "use": "@vercel/node" }],
     "rewrites": [
         { "source": "/(.*)", "destination": "src/app.js" }
     ],
+    "routes": [
+		{
+			"src": "/(.*)",
+			"dest": "/"
+		}
+	],
     "headers": [
         {
           "source": "/(.*)",
@@ -17,7 +18,7 @@
           ]
         },
         {
-          "source": "/vercel_app_domain_name/(.*)",
+          "source": "https://syntax-terminators-hosting-api.vercel.app/(.*)",
           "headers": [
             { "key": "Access-Control-Allow-Origin", "value": "*" }
           ]
