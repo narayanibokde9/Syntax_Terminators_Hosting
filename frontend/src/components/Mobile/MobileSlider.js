@@ -3,12 +3,13 @@ import { React, useEffect, useState } from "react";
 import MobileCardTemp from "./MobileCardTemp";
 
 import Slider from "react-slick";
+const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 export default function MobileSlider() {
 	const [product, setProduct] = useState([]);
 
 	useEffect(() => {
-		fetch("/products/showdb")
+		fetch(`${url_proxy}/products/showdb`)
 			.then((res) => res.json())
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);

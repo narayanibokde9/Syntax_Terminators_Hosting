@@ -2,10 +2,11 @@ import { experimentalStyled as styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import MobileCard from "../../components/Mobile/MobileCardTemp";
-import MobileSearchCard from "../../components/Mobile/MobileSearchCard"
+import MobileSearchCard from "../../components/Mobile/MobileSearchCard";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Pagination } from "@mui/material";
+const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
@@ -26,7 +27,9 @@ export default function Search() {
 	console.log(currentPage);
 
 	useEffect(() => {
-		fetch(`/products/search?searchQuery=${query}&page=${currentPage}`)
+		fetch(
+			`${url_proxy}/products/search?searchQuery=${query}&page=${currentPage}`
+		)
 			.then((res) => res.json())
 			.then((jsonRes) => {
 				setProducts(jsonRes.phones);
@@ -39,7 +42,7 @@ export default function Search() {
 		<div className="grid justify-items-stretch">
 			{products.map((product) => (
 				<Grid item xs={3} sm={4} md={4}>
-					<MobileSearchCard {...product}/>
+					<MobileSearchCard {...product} />
 				</Grid>
 			))}
 			<Pagination

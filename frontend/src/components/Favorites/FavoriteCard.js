@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { useAuthContext } from "../../hooks/useAuthContext";
 
+const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+
 export default function MobileCard(props, key) {
 	const { user } = useAuthContext();
 
@@ -35,7 +37,9 @@ export default function MobileCard(props, key) {
 				Authorization: `Bearer ${user.token}`,
 			},
 		};
-		fetch("user/favorites", requestOptions).then((prod) => console.log(prod));
+		fetch(`${url_proxy}user/favorites`, requestOptions).then((prod) =>
+			console.log(prod)
+		);
 		window.location.href = "/favorites";
 	};
 

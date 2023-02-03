@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {useAuthContext} from './useAuthContext'
+const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 export const useLogin = () => {
     const [ error, setError] = useState(null)
@@ -10,7 +11,7 @@ export const useLogin = () => {
         setIsLoading(true)
         setError(null)
 
-        const response = await fetch('/comparazon/user/login', {
+        const response = await fetch(`${url_proxy}/comparazon/user/login`, {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({email,password})

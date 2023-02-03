@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import MobileCard from "./FavoriteCard";
 import { useAuthContext } from "../../hooks/useAuthContext";
+const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 export default function MobileSlider() {
 	const { user } = useAuthContext();
@@ -9,10 +10,11 @@ export default function MobileSlider() {
 
 	useEffect(() => {
 		if (user) {
-			fetch("user/favorites", {
+			(fetch`${url_proxy}user/favorites`,
+			{
 				headers: {
-					'Authorization' : `Bearer ${user.token}`
-				}
+					Authorization: `Bearer ${user.token}`,
+				},
 			})
 				.then((res) => res.json())
 				.then((jsonRes) => setFavorites(jsonRes));

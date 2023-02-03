@@ -10,6 +10,7 @@ import {
 	ProductDealNoFlipkart,
 } from "../../components/Product/ProductDeals";
 import ProductInfo from "../../components/Product/ProductInfo";
+const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 function Product() {
 	const [product, setProduct] = useState();
@@ -19,7 +20,7 @@ function Product() {
 	const { _id } = useParams();
 
 	useEffect(() => {
-		fetch(`/products/showPhone/${_id}`)
+		fetch(`${url_proxy}/products/showPhone/${_id}`)
 			.then((res) => res.json())
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);
@@ -32,7 +33,7 @@ function Product() {
 		setFavorite(favorite.push(product));
 		console.log(product);
 
-		fetch("/user/favorites", {
+		fetch(`${url_proxy}/user/favorites`, {
 			method: "POST",
 			body: JSON.stringify(product),
 			headers: {
@@ -80,7 +81,7 @@ export const ProductDetail = () => {
 	const { _id } = useParams();
 
 	useEffect(() => {
-		fetch(`/products/showPhone/${_id}`)
+		fetch(`${url_proxy}/products/showPhone/${_id}`)
 			.then((res) => res.json())
 			.then((jsonRes) => setProduct(jsonRes));
 	}, []);

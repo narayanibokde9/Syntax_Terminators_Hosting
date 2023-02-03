@@ -6,6 +6,8 @@ import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import FilterNav from "../../components/Navbar/FilterNav";
 
+const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
 	...theme.typography.body2,
@@ -21,21 +23,13 @@ function FilterResult() {
 	const queryPrice = searchParams.get("price");
 	const queryPriceSort = searchParams.get("priceSort");
 	const queryRatingSort = searchParams.get("ratingSort");
-	// const queryStorage = searchParams.get("storage");
 	useEffect(() => {
-		// if (queryPrice.length > 0) {
 			fetch(
-				`/products/filter?brand=${queryBrand}&price=${queryPrice}&priceSort=${queryPriceSort}&ratingSort=${queryRatingSort}`
+				`${url_proxy}/products/filter?brand=${queryBrand}&price=${queryPrice}&priceSort=${queryPriceSort}&ratingSort=${queryRatingSort}`
 			)
 				.then((res) => res.json())
 				.then((jsonRes) => setProducts(jsonRes));
-		// } else {
-		// 	fetch(
-		// 		`/products/filter?brand=${queryBrand}&price=&priceSort=${queryPriceSort}&ratingSort=${queryRatingSort}`
-		// 	)
-		// 		.then((res) => res.json())
-		// 		.then((jsonRes) => setProducts(jsonRes));
-		// }
+		
 	}, []);
 
 	console.log(products);
