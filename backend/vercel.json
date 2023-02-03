@@ -4,12 +4,6 @@
     "rewrites": [
         { "source": "/(.*)", "destination": "src/app.js" }
     ],
-    "routes": [
-		{
-			"src": "/(.*)",
-			"dest": "/"
-		}
-	],
     "headers": [
         {
           "source": "/(.*)",
