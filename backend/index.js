@@ -1,5 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require("cors");
+
+
 
 //import routes
 const userRoutes = require('./routes/users')
@@ -7,6 +10,14 @@ const favoriteRoutes = require('./routes/favorites')
 const productRoutes = require('./routes/products')
 
 //middleware
+// Allow requests from any origin
+const corsOptions = {
+	origin: "*",
+	methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+	allowedHeaders: ["Content-Type", "Authorization"],
+};
+app.use(cors(corsOptions));
+
 const app = express()
 app.use(express.json())
 app.use((req, res, next) => {
