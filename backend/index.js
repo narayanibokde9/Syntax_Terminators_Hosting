@@ -1,8 +1,5 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const cors = require("cors");
-
-
 
 //import routes
 const userRoutes = require('./routes/users')
@@ -11,7 +8,6 @@ const productRoutes = require('./routes/products')
 
 //middleware
 // Allow requests from any origin
-app.use(cors());
 
 const app = express()
 app.use(express.json())
