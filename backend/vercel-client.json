@@ -1,16 +1,8 @@
 {
 	"version": 2,
-	"builds": [{ "src": "*.js", "use": "@vercel/node" }],
-
 	"routes": [
 		{
-			"src": "/(.*)",
-			"dest": "/"
-		}
-	],
-	"headers": [
-		{
-			"source": "/api/(.*)",
+			"src": "/api/(.*)",
 			"headers": [
 				{ "key": "Access-Control-Allow-Credentials", "value": "true" },
 				{ "key": "Access-Control-Allow-Origin", "value": "*" },
