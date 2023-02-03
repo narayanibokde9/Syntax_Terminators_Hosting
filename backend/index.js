@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 //import routes
 const userRoutes = require('./routes/users')
-const favoriteRoutes = require('./routes/favorites')
+// const favoriteRoutes = require('./routes/favorites')
 const productRoutes = require('./routes/products')
 
 //middleware
@@ -27,7 +27,7 @@ app.get("/time", (req, res) => {
 //routes
 app.use('/comparazon/user', userRoutes)
 app.use('/products', productRoutes)
-app.use('/user', favoriteRoutes)
+// app.use('/user', favoriteRoutes)
 
 //server connect with db 
 mongoose
