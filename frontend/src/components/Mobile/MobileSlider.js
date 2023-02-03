@@ -8,15 +8,14 @@ const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 export default function MobileSlider() {
 	const [product, setProduct] = useState([]);
 
-	useEffect(() => {
+		useEffect(() => {
 		console.log("GOT URL");
 		fetch(`${url_proxy}products/showdb`)
 			.then((res) => {
-				let jsonRes = res.json();
-				setProduct(jsonRes);
-				console.log(jsonRes);
+				res.json();
 				console.log("GOT JSON");
 			})
+			.then((jsonRes) => setProduct(jsonRes));
 	}, []);
 	
 	const settings = {
