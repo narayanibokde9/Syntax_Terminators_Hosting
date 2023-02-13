@@ -41,6 +41,7 @@ export default function MobileCard(props, key) {
 			console.log(prod)
 		);
 // 		window.location.href = "/favorites";
+		window.location.reload(false);
 	};
 
 	const bestPrice = (price, flipkart_price) => {
