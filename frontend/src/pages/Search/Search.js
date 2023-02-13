@@ -6,7 +6,8 @@ import MobileSearchCard from "../../components/Mobile/MobileSearchCard";
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Pagination } from "@mui/material";
-const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+import url_proxy from "../../api/api";
+// const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",

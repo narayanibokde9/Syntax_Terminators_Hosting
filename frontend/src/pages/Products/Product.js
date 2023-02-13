@@ -10,7 +10,8 @@ import {
 	ProductDealNoFlipkart,
 } from "../../components/Product/ProductDeals";
 import ProductInfo from "../../components/Product/ProductInfo";
-const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+import url_proxy from "../../api/api";
+// const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 function Product() {
 	const [product, setProduct] = useState();

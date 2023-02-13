@@ -4,7 +4,8 @@ import { Link } from "react-router-dom";
 
 import { useAuthContext } from "../../hooks/useAuthContext";
 
-const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+import url_proxy from "../../api/api";
+// const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 export default function MobileCard(props, key) {
 	const { user } = useAuthContext();

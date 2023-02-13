@@ -5,7 +5,8 @@ import {
 	SidebarButton,
 	SidebarButtonCross,
 } from "./FilterNavComponents";
-const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+import url_proxy from "../../api/api";
+// const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 function FilterNav() {
 	const [brandFetch, setBrandFetch] = useState([]);

@@ -4,7 +4,9 @@ import MobileCard from "./MobileCardTemp";
 
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
-const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+import url_proxy from "../../api/api";
+
+// const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 export default function MobilePage() {
 	const [product, setProduct] = useState([]);
