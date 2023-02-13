@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {useAuthContext} from './useAuthContext'
-const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+import url_proxy from "../api/api";
+// const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 export const useLogin = () => {
     const [ error, setError] = useState(null)

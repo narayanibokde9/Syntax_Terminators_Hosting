@@ -5,8 +5,8 @@ import MobileCard from "../../components/Mobile/MobileCardTemp";
 import { styled } from "@mui/material/styles";
 import Paper from "@mui/material/Paper";
 import FilterNav from "../../components/Navbar/FilterNav";
-
-const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+import url_proxy from "../../api/api";
+// const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 const Item = styled(Paper)(({ theme }) => ({
 	backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",

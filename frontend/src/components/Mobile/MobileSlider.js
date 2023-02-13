@@ -3,7 +3,8 @@ import { React, useEffect, useState } from "react";
 import MobileCardTemp from "./MobileCardTemp";
 
 import Slider from "react-slick";
-const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
+import url_proxy from "../../api/api";
+// const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 export default function MobileSlider() {
 	const [product, setProduct] = useState([]);
