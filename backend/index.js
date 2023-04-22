@@ -13,11 +13,18 @@ const productRoutes = require('./routes/products')
 
 const app = express()
 
+// app.use(
+// 	cors({
+// 		origin: "https://syntax-terminators-hosting.vercel.app",
+// 		optionsSuccessStatus: 200,
+// 	})
+// );
+
 app.use(
-	cors({
-		origin: "https://syntax-terminators-hosting.vercel.app",
-		optionsSuccessStatus: 200,
-	})
+  cors({
+    origin: "*",
+    optionsSuccessStatus: 200
+  })
 );
 
 app.use(express.json())
