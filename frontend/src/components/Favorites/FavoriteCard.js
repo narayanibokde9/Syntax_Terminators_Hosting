@@ -41,7 +41,7 @@ export default function MobileCard(props, key) {
 		fetch(`${url_proxy}user/favorites`, requestOptions).then((prod) =>
 			console.log(prod)
 		);
-		// window.location.href = "/favorites";
+		// 		window.location.href = "/favorites";
 	};
 
 	const bestPrice = (price, flipkart_price) => {

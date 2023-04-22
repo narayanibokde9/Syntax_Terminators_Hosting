@@ -1,5 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
+const cors = require("cors");
+
 
 //import routes
 const userRoutes = require('./routes/users')
@@ -10,6 +12,14 @@ const productRoutes = require('./routes/products')
 // Allow requests from any origin
 
 const app = express()
+
+app.use(
+	cors({
+		origin: "https://syntax-terminators-hosting.vercel.app",
+		optionsSuccessStatus: 200,
+	})
+);
+
 app.use(express.json())
 app.use((req, res, next) => {
 	console.log(req.path, req.method)

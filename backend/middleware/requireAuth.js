@@ -3,7 +3,7 @@ const User = require("../models/user");
 
 const requireAuth = async (req, res, next) => {
 	// verify user is authenticated
-	const { authorization } = req.headers;
+	try{const { authorization } = req.headers;
 
 	if (!authorization) {
 		return res.status(401).json({ error: "Authorization token required" });
@@ -19,7 +19,7 @@ const requireAuth = async (req, res, next) => {
 	} catch (error) {
 		console.log(error);
 		res.status(401).json({ error: "Request is not authorized" });
-	}
+	}}catch(e){console.log(e)}
 };
 
 module.exports = requireAuth;
