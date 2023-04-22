@@ -20,6 +20,10 @@ export default function MobilePage() {
 				setIsLoading(false);
 			});
 	}, []);
+	
+	if (isLoading) {
+		return <React.Fragment>Loading...</React.Fragment>;
+	}
 
 	return (
 		<div className="">
