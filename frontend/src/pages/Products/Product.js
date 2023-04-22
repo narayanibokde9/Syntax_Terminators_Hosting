@@ -3,6 +3,8 @@ import { Link, useParams } from "react-router-dom";
 
 import { useAuthContext } from "../../hooks/useAuthContext";
 
+import Backdrop from "@mui/material/Backdrop";
+import { CircularProgress } from "@mui/material";
 import ProductDetails from "../../components/Product/ProductDetails";
 import {
 	ProductDealAmazon,
@@ -16,6 +18,8 @@ import url_proxy from "../../api/api";
 function Product() {
 	const [product, setProduct] = useState();
 	const [favorite, setFavorite] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [open, setOpen] = useState(true);
 
 	const { user } = useAuthContext();
 	const { _id } = useParams();
@@ -23,7 +27,11 @@ function Product() {
 	useEffect(() => {
 		fetch(`${url_proxy}products/showPhone/${_id}`)
 			.then((res) => res.json())
-			.then((jsonRes) => setProduct(jsonRes));
+			.then((jsonRes) => {
+				setProduct(jsonRes);
+				setIsLoading(false);
+				setOpen(!open);
+			});
 	}, []);
 
 	const addToFavorites = () => {
@@ -49,25 +57,39 @@ function Product() {
 	return (
 		<div className="flex flex-col mx-[10%] my-[5%] space-y-[5%]">
 			<div className="flex flex-col">
-				<div className="flex flex-row space-x-4 justify-evenly">
-					<ProductDetail />
-					<div className="flex flex-col">
-						<div className="flex space-x-12">
-							<ProdAmazon className="h-64 w-32" />
-							<ProdFlipkart className="h-64 w-32" />
+				{isLoading ? (
+					<Backdrop
+						sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+						open={open}
+					>
+						<CircularProgress color="inherit" />
+						<div className="px-5">
+							<h5 class="truncate capitalize text-xl font-semibold tracking-tight text-white dark:text-white hover:text-red-600">
+								Loading...
+							</h5>
 						</div>
-						<div className="flex justify-center">
-							<Link to="/favorites">
-								<button
-									className="my-16 max-h-10 text-white bg-red-500 hover:bg-red-600  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
-									onClick={addToFavorites}
-								>
-									Add to favorites
-								</button>
-							</Link>
+					</Backdrop>
+				) : (
+					<div className="flex flex-row space-x-4 justify-evenly">
+						<ProductDetail />
+						<div className="flex flex-col">
+							<div className="flex space-x-12">
+								<ProdAmazon className="h-64 w-32" />
+								<ProdFlipkart className="h-64 w-32" />
+							</div>
+							<div className="flex justify-center">
+								<Link to="/favorites">
+									<button
+										className="my-16 max-h-10 text-white bg-red-500 hover:bg-red-600  font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2"
+										onClick={addToFavorites}
+									>
+										Add to favorites
+									</button>
+								</Link>
+							</div>
 						</div>
 					</div>
-				</div>
+				)}
 			</div>
 			<div>
 				<ProductInfoTable />
