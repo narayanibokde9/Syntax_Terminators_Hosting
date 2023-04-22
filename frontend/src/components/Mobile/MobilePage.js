@@ -6,7 +6,6 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 import url_proxy from "../../api/api";
-import LoadingCard from "../LoadingCard";
 import { CircularProgress } from "@mui/material";
 
 // const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
