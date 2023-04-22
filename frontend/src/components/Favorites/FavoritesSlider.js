@@ -31,7 +31,7 @@ export default function MobileSlider() {
 				.then((res) => res.json())
 				.then((jsonRes) => {
 					setFavorites(jsonRes);
-					setCart([jsonRes]);
+					setCart(jsonRes);
 					setIsLoading(false);
 					setOpen(!open);
 				});
