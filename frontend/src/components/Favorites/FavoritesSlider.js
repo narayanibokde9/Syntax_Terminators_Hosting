@@ -5,10 +5,12 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { Box, Grid } from "@mui/material";
 // const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 import url_proxy from "../../api/api";
+import { json } from "react-router-dom";
 
 export default function MobileSlider() {
 	const { user } = useAuthContext();
 	const [favorites, setFavorites] = useState([]);
+	const [cart, setCart] = useState([]);
 
 	// useEffect(() => {
 	// 	fetch(`${url_proxy}user/favorites`)
@@ -24,11 +26,14 @@ export default function MobileSlider() {
 				},
 			})
 				.then((res) => res.json())
-				.then((jsonRes) => setFavorites(jsonRes));
+				.then((jsonRes) => {
+					setFavorites(jsonRes);
+					setCart([jsonRes]);
+				});
 		}
 	}, [user]);
 
-	console.log(favorites);
+	console.log('fav',favorites);
 
 	const settings = {
 		dots: true,
@@ -40,7 +45,7 @@ export default function MobileSlider() {
 	return (
 		<div className="m-4 min-h-full">
 			<Slider {...settings} className="m-8 min-h-fit">
-				{favorites.map((mobile) => {
+				{cart.map((mobile) => {
 					return (
 						<div>
 							<MobileCard {...mobile} key={mobile._id} />

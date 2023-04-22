@@ -9,12 +9,16 @@ import url_proxy from "../../api/api";
 // const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 
 export default function MobilePage() {
+	const [isLoading, setIsLoading] = useState(true);
 	const [product, setProduct] = useState([]);
 
 	useEffect(() => {
 		fetch(`${url_proxy}products/showdb`)
 			.then((res) => res.json())
-			.then((jsonRes) => setProduct(jsonRes));
+			.then((jsonRes) => {
+				setProduct(jsonRes);
+				setIsLoading(false);
+			});
 	}, []);
 
 	return (
