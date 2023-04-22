@@ -2,15 +2,18 @@ import React, { useEffect, useState } from "react";
 import Slider from "react-slick";
 import MobileCard from "./FavoriteCard";
 import { useAuthContext } from "../../hooks/useAuthContext";
-import { Box, Grid } from "@mui/material";
 // const url_proxy = "https://syntax-terminators-hosting-api.vercel.app/";
 import url_proxy from "../../api/api";
-import { json } from "react-router-dom";
+
+import Backdrop from "@mui/material/Backdrop";
+import { CircularProgress } from "@mui/material";
 
 export default function MobileSlider() {
 	const { user } = useAuthContext();
 	const [favorites, setFavorites] = useState([]);
 	const [cart, setCart] = useState([]);
+	const [isLoading, setIsLoading] = useState(true);
+	const [open, setOpen] = useState(true);
 
 	// useEffect(() => {
 	// 	fetch(`${url_proxy}user/favorites`)
@@ -29,11 +32,13 @@ export default function MobileSlider() {
 				.then((jsonRes) => {
 					setFavorites(jsonRes);
 					setCart([jsonRes]);
+					setIsLoading(false);
+					setOpen(!open);
 				});
 		}
 	}, [user]);
 
-	console.log('fav',favorites);
+	console.log("fav", favorites);
 
 	const settings = {
 		dots: true,
@@ -44,15 +49,29 @@ export default function MobileSlider() {
 	};
 	return (
 		<div className="m-4 min-h-full">
-			<Slider {...settings} className="m-8 min-h-fit">
-				{cart.map((mobile) => {
-					return (
-						<div>
-							<MobileCard {...mobile} key={mobile._id} />
-						</div>
-					);
-				})}
-			</Slider>
+			{isLoading ? (
+				<Backdrop
+					sx={{ color: "#fff", zIndex: (theme) => theme.zIndex.drawer + 1 }}
+					open={open}
+				>
+					<CircularProgress color="inherit" />
+					<div className="px-5">
+						<h5 class="truncate capitalize text-xl font-semibold tracking-tight text-white dark:text-white hover:text-red-600">
+							Loading...
+						</h5>
+					</div>
+				</Backdrop>
+			) : (
+				<Slider {...settings} className="m-8 min-h-fit">
+					{cart.map((mobile) => {
+						return (
+							<div>
+								<MobileCard {...mobile} key={mobile._id} />
+							</div>
+						);
+					})}
+				</Slider>
+			)}
 		</div>
 	);
 }
