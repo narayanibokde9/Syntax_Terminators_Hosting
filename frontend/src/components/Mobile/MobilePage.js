@@ -22,7 +22,7 @@ export default function MobilePage() {
 	}, []);
 	
 	if (isLoading) {
-		return <React.Fragment>Loading...</React.Fragment>;
+		return <div>Loading...</div>;
 	}
 
 	return (
