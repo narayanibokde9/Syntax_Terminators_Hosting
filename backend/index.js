@@ -49,7 +49,7 @@ app.use('/user', favoriteRoutes)
 //server connect with db 
 mongoose
 	.connect(
-		'mongodb+srv://Comparazon:sharayu2000@cluster0.vkvevwe.mongodb.net/shaurya-test',
+		'mongodb+srv://Comparazon:sharayu2000@cluster0.vkvevwe.mongodb.net/test',
 		{ useNewUrlParser: true, useUnifiedTopology: true }
 	)
 	.then(() => {
